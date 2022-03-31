@@ -10,7 +10,8 @@ import java.util.List;
 import java.util.Properties;
 
 public class NameConstraintValidator implements ConstraintValidator<ValidName, String> {
-	
+
+
 	@Override
 	public boolean isValid(String password, ConstraintValidatorContext context) {
 		

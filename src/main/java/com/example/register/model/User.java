@@ -15,7 +15,7 @@ import java.util.Map;
 @NamedNativeQuery(
 name = "User.countCorrectAnswers",
 query = "SELECT Count(correct_answer) "
-	 + " FROM users LEFT JOIN users_answers on users.user_id = users_answers.user_id"
+	 + " FROM users LEFT JOIN  users_answers on users.user_id = users_answers.user_id"
 	 + " LEFT JOIN questions on users_answers.question_id = questions.question_id"
 	 + " WHERE username = :username AND answer = correct_answer")
 @Data

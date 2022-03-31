@@ -22,7 +22,6 @@ import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
-
 public class QuizAdministratorController {
     private final QuestionService questionService;
     private final UserService userService;
