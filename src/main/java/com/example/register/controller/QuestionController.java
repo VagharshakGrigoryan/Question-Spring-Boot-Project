@@ -17,7 +17,7 @@ import java.security.Principal;
 @Controller
 @RequiredArgsConstructor
 @Slf4j
-public class QuizController {
+public class QuestionController {
 
     private final QuestionService questionService;
     private final QuizService quizService;
