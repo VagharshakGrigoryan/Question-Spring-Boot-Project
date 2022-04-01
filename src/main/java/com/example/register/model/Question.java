@@ -30,9 +30,8 @@ public class Question{
 	@JoinColumn(name="created_by_user", referencedColumnName = "user_id", nullable = false)
 	private User createdBy;
 	
-	/* validation */
+	
 	@NotBlank
-	//
 	@Column(nullable = false)
 	private String questionText;
 	
@@ -47,10 +46,10 @@ public class Question{
 	@CollectionTable(name = "answers", joinColumns = @JoinColumn(name = "question_id", referencedColumnName = "question_id"))
 	@OrderColumn(name = "ordinal", columnDefinition = "tinyint") 
 	@Column(name = "answer", nullable = false)
-	private List<@NotBlank String> answers = new ArrayList<String>();	// Includes the correctAnswer.
+	private List<@NotBlank String> answers = new ArrayList<String>();	
 
 	@Transient
-	private int selectedAnswerIndex;	// Used in a form when user create a question.
+	private int selectedAnswerIndex;	
 
 	@Transient
 	@Getter(value = AccessLevel.NONE)
