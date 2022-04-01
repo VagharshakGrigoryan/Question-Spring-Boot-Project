@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title> Spring Quiz - Administrator - Questions - User engagement</title>
+    <title>  User engagement</title>
 </head>
 <body>
 <header
@@ -14,10 +14,10 @@
 </nav>
 
 <div class="w3-container w3-center w3-padding-large">
-    <h2>User engagement</h2></div>
+    <h2 th:text="#{userEngagement.User_engagement}"></h2></div>
 <form class=" w3-container w3-center"
       th:action="@{/users/usersEng}" method="get">
-    <label class="w3-medium" th:for="select">Users that answered question: </label>
+    <label class="w3-medium" th:for="select" th:text="#{userEngagement.Users_that_answered_question}"> </label>
     <label>
         <select class="w3-select w3-center" style="width: auto;" name="q" th:id="select">
             <option th:each="question, loop : ${texts}"
@@ -26,7 +26,7 @@
         </select>
     </label>
     <p>
-        <label th:for="cbox"> Show only users that answered correctly</label>
+        <label th:for="cbox" th:text="#{userEngagement.Show_only_users_that_answered_correctly}"> </label>
         <label>
             <input class="w3-check"
                    type="checkbox" name="correctly" th:id="cbox" th:checked="${checked}"/>

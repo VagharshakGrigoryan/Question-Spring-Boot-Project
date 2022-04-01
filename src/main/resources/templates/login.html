@@ -13,10 +13,10 @@
         th:replace="~{fragments/Navigation :: topBar}">
 </nav>
 <div class="w3-container" align="center">
-    <h2 th:text="Welcome"></h2>
+    <h2 th:text="#{login.Welcome}"></h2>
 </div>
 <div class="w3-panel" align="center">
-    <h4 align="center">Please log in:</h4>
+    <h4 align="center" th:text="#{login.Please_log_in}"></h4>
     <form class="w3-container w3-card w3-light-grey" style="width:50%;"
           th:action="@{/login}" method="post">
 
@@ -30,6 +30,12 @@
             <input class="w3-input w3-border"
                    type="password" name="password" id="password" required="required"/>
         </p>
+        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+
+            <input type="checkbox" class="form-check-input" id="remember-me"
+                   name="remember-me"> <label class="form-check-label"
+                                              for="remember-me">Remember me?</label>
+        </div>
         <p>
             <input class="w3-btn w3-block w3-green w3-m"
                    type="submit" value="Login">

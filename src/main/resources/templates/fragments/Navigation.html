@@ -1,65 +1,87 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
-	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	  xsi:schemaLocation="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5 ">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5 ">
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<title>Navigation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Navigation</title>
 </head>
 <body>
 <!-- Main navigation -->
 <nav th:fragment="topBar">
-	<div class="w3-bar w3-light-grey ">
-		<a th:href="@{/home}" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black">Home</a>
-		<div class="w3-dropdown-hover"
-			 sec:authorize="hasRole('MODERATOR')">
-			<div class="w3-text-grey" style="padding-top: 8px; padding-left: 8px; padding-right: 8px;"> Users &#9660;
-			</div>
-			<div class="w3-dropdown-content w3-bar-block w3-light-grey" style="padding-top: 8px;">
-				<a class="w3-bar-item w3-button w3-hover-none w3-text-grey"
-				   sec:authorize="hasRole('ADMINISTRATOR')"
-				   th:href="@{/users}">Overview</a>
-				<a class="w3-bar-item w3-button w3-hover-none w3-text-grey"
-				   th:href="@{/users/usersEng}">Engagement</a>
-			</div>
-		</div>
-		<div class="w3-dropdown-hover"
-			 sec:authorize="hasRole('CONTRIBUTOR')">
-			<div class="w3-text-grey" style="padding-top: 8px; padding-left: 16px; padding-right: 8px;"> Questions
-				&#9660;
-			</div>
-			<div class="w3-dropdown-content w3-bar-block w3-light-grey" style="padding-top: 8px;">
-				<a class="w3-bar-item w3-button w3-hover-none w3-text-grey"
-				   sec:authorize="hasRole('MODERATOR')"
-				   th:href="@{/questions}">Show all</a>
-				<a class="w3-bar-item w3-button w3-hover-none w3-text-grey"
-				   th:href="@{/questions/byMe}">Show added by me</a>
-				<a class="w3-bar-item w3-button w3-hover-none w3-text-grey"
-				   th:href="@{/questions/new}">Add new</a>
-			</div>
-		</div>
-		<div class="w3-right w3-dropdown-hover"
-			 sec:authorize="isAuthenticated()">
-			<div class="w3-text-grey" style="padding-top: 8px; padding-right: 16px;"> Logged in as: <span
-					sec:authentication="name"></span> &#9660;
-			</div>
-			<div class="w3-dropdown-content w3-bar-block w3-light-grey" style="padding-top: 6px;">
-				<a class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-center"
-				   th:href="@{/logout}"> log out </a>
-			</div>
-		</div>
-	</div>
-</nav>
+    <div class="w3-bar w3-light-grey ">
+        <a th:href="@{/home}" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black" th:text="#{Navigation.Home}"></a>
+        <div class="w3-dropdown-hover"
+             sec:authorize="hasRole('MODERATOR')">
+            <div class="w3-text-grey" style="padding-top: 8px; padding-left: 8px; padding-right: 8px;" th:text="#{Navigation.Users}"> &#9660;
+            </div>
+            <div class="w3-dropdown-content w3-bar-block w3-light-grey" style="padding-top: 8px;">
+                <a class="w3-bar-item w3-button w3-hover-none w3-text-grey"
+                   sec:authorize="hasRole('ADMINISTRATOR')"
+                   th:href="@{/users}" th:text="#{Navigation.Overview}"></a>
+                <a class="w3-bar-item w3-button w3-hover-none w3-text-grey"
+                   th:href="@{/users/usersEng}" th:text="#{Navigation.Engagement}"></a>
+            </div>
+        </div>
+        <div class="w3-dropdown-hover"
+             sec:authorize="hasRole('CONTRIBUTOR')">
+            <div class="w3-text-grey" style="padding-top: 8px; padding-left: 16px; padding-right: 8px;" th:text="#{Navigation.Questions}">
+                &#9660;
+            </div>
+            <div class="w3-dropdown-content w3-bar-block w3-light-grey" style="padding-top: 8px;">
+                <a class="w3-bar-item w3-button w3-hover-none w3-text-grey"
+                   sec:authorize="hasRole('MODERATOR')"
+                   th:href="@{/questions}" th:text="#{Navigation.Show_all}"></a>
+                <a class="w3-bar-item w3-button w3-hover-none w3-text-grey"
+                   th:href="@{/questions/byMe}" th:text="#{Navigation.Show_added_by_me}"></a>
+                <a class="w3-bar-item w3-button w3-hover-none w3-text-grey"
+                   th:href="@{/questions/new}" th:text="#{Navigation.Add_new}"></a>
+            </div>
+        </div>
 
-<!-- admin tools navigation buttons -->
+        <div class="w3-right w3-dropdown-hover"
+
+             sec:authorize="isAuthenticated()">
+            <div class="w3-text-grey" style="padding-top: 8px; padding-right: 16px;" >   Logged in as:  <span
+                    sec:authentication="name"></span> &#9660;
+            </div>
+            <div class="w3-dropdown-content w3-bar-block w3-light-grey" style="padding-top: 6px;">
+                <a class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-center"
+                   th:href="@{/logout}" th:text="#{Navigation.logo_out}"> </a>
+
+            </div>
+        </div>
+        <div class="w3-right w3-dropdown-hover" sec:authorize="isAuthenticated()">
+            <div class="w3-text-grey" style="padding-top: 8px; padding-right: 16px;" th:text="#{Navigation.Languages}"> &#9660;
+            </div>
+            <div class="w3-dropdown-content w3-bar-block w3-light-grey" style="padding-top: 6px;">
+                <div th:fragment="lang">
+                    <a  class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-center" href="?lang=hy"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/250px-Flag_of_Armenia.svg.png"
+                            width="20" height="15" alt=""></a>
+
+                    <a class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-center" href="?lang=ru"><img
+                            src="https://www.youngpioneertours.com/wp-content/uploads/2020/03/russian-flag-russian-flag-russia-flag-of-russia.jpg"
+                            width="20" height="15" alt=""></a>
+
+                    <a class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-center" href="?lang=en"><img
+                            src="data:image/png;base64,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"
+                            width="20" height="15" alt=""></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</nav>
 <nav th:fragment="adminTools"
-	 sec:authorize="hasRole('ADMINISTRATOR')">
-	<div class="w3-center w3-padding-64">
-		<a th:href="@{/users}" class="w3-btn w3-small w3-green"> Users </a>
-		<a th:href="@{/questions}" class="w3-btn w3-small w3-green w3-margin-right"> Questions </a>
-	</div>
+     sec:authorize="hasRole('ADMINISTRATOR')">
+    <div class="w3-center w3-padding-64">
+        <a th:href="@{/users}" class="w3-btn w3-small w3-green" th:text="#{Navigation.Users}">  </a>
+        <a th:href="@{/questions}" class="w3-btn w3-small w3-green w3-margin-right" th:text="#{Navigation.Questions}">  </a>
+    </div>
 </nav>
 </body>
 </html>

@@ -15,10 +15,10 @@
 		th:replace="~{fragments/Navigation :: topBar}">
 </nav>
 <div class="w3-container w3-center w3-padding-large">
-	<h2 th:text="'Questions' + (${param.byMe}? ' added by me' : '')">Questions</h2>
+	<h2 th:text="#{questions.Questions} +(${param.byMe}? ' added by me' : '')" ></h2>
 </div>
 <div class="w3-container w3-center w3-padding-large">
-	<a th:href="@{/questions/new}" class="w3-btn w3-large w3-green"> Add new </a>
+	<a th:href="@{/questions/new}" class="w3-btn w3-large w3-green" th:text="#{questions.Add_new}"> \ </a>
 </div>
 
 <div align="center">
@@ -31,7 +31,7 @@
 		 style="width:70%;"
 		 th:each="question : ${questions}">
 		<div class="w3-bar">
-			<h5 class="w3-bar-item"><b th:text="${question.questionText}">Question text</b></h5>
+			<h5 class="w3-bar-item"><b  th:text="#{questions.Question_text}"></b></h5>
 			<form class="w3-bar-item w3-right"
 				  sec:authorize="hasRole('CONTRIBUTOR')"
 				  th:action="@{/questions/delete}" method="post">
@@ -50,7 +50,7 @@
 		<ul class="w3-ul">
 			<li class="w3-border-bottom"
 				th:each="answer,iterStat : ${question.answers}">
-				<span th:text="${iterStat.count +'. ' + answer + ' '}">Answer</span>
+				<span th:text="${iterStat.count +'. ' + answer + ' '}"><h1 th:text="#{questions.Answer}"></h1></span>
 				<span class="fa fa-check w3-large w3-green">
  				</span>
 			</li>

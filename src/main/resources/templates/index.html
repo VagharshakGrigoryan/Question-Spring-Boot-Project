@@ -13,9 +13,9 @@
 	 	th:replace="~{fragments/Navigation :: topBar}" >
 	 </nav>
 	<div class="w3-container w3-padding-large" align="center">
-		<h2 th:text="${'Welcome ' + session.userFirstName}"></h2>
+		<h2 th:text="#{index.Welcome}+${session.userFirstName}"></h2>
 
-		<a th:href="@{/quiz/start}" class="w3-btn w3-large w3-green">Start test</a>
+		<a th:href="@{/quiz/start}" class="w3-btn w3-large w3-green" th:text="#{index.Start_test}"></a>
 	</div>
 	<footer
 		th:replace="~{fragments/HeaderAndFooter :: footer}">
