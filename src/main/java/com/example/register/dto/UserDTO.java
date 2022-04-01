@@ -15,16 +15,17 @@ public class UserDTO {
 	String lastName;
 	Role role;
 	LocalDateTime lastActive;
+	String picUrl;
 
 
-	public UserDTO(String username, String email, String firstName, String lastName, Role role, LocalDateTime lastActive) {
-
-		this.username	= username;
-		this.email		= redact(email);
-		this.firstName	= firstName;
-		this.lastName	= lastName;
-		this.role 		= role;
+	public UserDTO(String username, String email, String firstName, String lastName, Role role, LocalDateTime lastActive, String picUrl) {
+		this.username = username;
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.role = role;
 		this.lastActive = lastActive;
+		this.picUrl = picUrl;
 	}
 
 	private String redact(String emailFull) {

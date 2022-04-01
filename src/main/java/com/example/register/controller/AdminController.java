@@ -7,6 +7,7 @@ import com.example.register.service.QuestionService;
 import com.example.register.service.QuizService;
 import com.example.register.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -126,6 +127,8 @@ public class AdminController {
         return "redirect:/questions" + redirectModifier;
     }
 
+
+
     @GetMapping("/users")
     public String getUsersInfo(ModelMap model) {
         model.addAttribute("users", userService.getUsersInfo());
@@ -149,5 +152,6 @@ public class AdminController {
         }
         return "usersEngagement";
     }
+
 
 }

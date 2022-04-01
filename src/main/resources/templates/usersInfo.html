@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-amber.css">
     <title> Spring Quiz - Users info</title>
 </head>
 <body>
@@ -25,6 +26,7 @@
             <th th:text="#{userInfo.Email}"></th>
             <th th:text="#{userInfo.Account}"></th>
             <th th:text="#{userInfo.Last_logged_in}"></th>
+            <th th:text="#{userInfo.picture}"></th>
         </tr>
         </thead>
         <tbody>
@@ -35,6 +37,8 @@
             <td th:text="${u.email}"></td>
             <td th:text="${u.role.displayValue}"></td>
             <td th:text="${u.lastActive}"></td>
+            <td ><a th:if="${u.picUrl != null}" th:href="@{/image(picUrl=${u.picUrl})}">
+                <img width="100"  th:src="@{/image(picUrl=${u.picUrl})}" alt="en"></a> </td>
         </tr>
         </tbody>
     </table>

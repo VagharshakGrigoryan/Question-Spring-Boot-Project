@@ -15,7 +15,7 @@
 <div class="w3-panel" align="center">
     <h4 align="center">Register new account</h4>
     <form class="w3-container w3-card  w3-light-grey" style="width:50%;"
-          action="#" th:action="@{/registration}" th:object="${user}" method="post">
+          action="#" th:action="@{/registration}" th:object="${user}" method="post" enctype="multipart/form-data">
 
         <p align="left">
             <label th:for="firstName">First Name:</label>
@@ -48,6 +48,8 @@
             <label class="w3-text-red"
                    th:errors="*{username}"> username error </label>
         </p>
+        Image: <input type="file" name="picture" > <br>
+
         <p align="left">
             <label th:for="password">Password: *</label>
             <label>

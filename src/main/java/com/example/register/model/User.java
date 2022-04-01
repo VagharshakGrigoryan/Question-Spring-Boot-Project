@@ -52,6 +52,9 @@ public class User {
 	private String lastName;	
 
 	private LocalDateTime lastActive;
+
+	@Column(name = "pic_url")
+	private String picUrl;
 	
 	@Convert(converter = RoleConventer.class)
 	@Column(length = 4, nullable = false)

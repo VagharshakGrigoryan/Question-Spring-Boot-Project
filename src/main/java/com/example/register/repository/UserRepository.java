@@ -19,7 +19,8 @@ public interface UserRepository extends PagingAndSortingRepository<User, Long> {
 
     Optional<User> findByUsername(String username);
 
-    @Query("SELECT NEW com.example.register.dto.UserDTO(u.username, u.email, u.firstName, u.lastName, u.role, u.lastActive)"
+    @Query("SELECT NEW com.example.register.dto.UserDTO(u.username, u.email, u.firstName," +
+            " u.lastName, u.role, u.lastActive,u.picUrl)"
             + " FROM User u")
     Set<UserDTO> getUsersInfo();
 
