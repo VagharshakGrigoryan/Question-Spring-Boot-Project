@@ -79,7 +79,6 @@ public class Question{
 		Question otherQ = (Question) obj;
 		if ( ! this.questionText.equals(otherQ.questionText))
 			return false;
-		/* Check if answers are the same - irrelevant of order. */
 		return new HashSet<>(this.answers).equals(new HashSet<>(otherQ.answers));
 	}
 
