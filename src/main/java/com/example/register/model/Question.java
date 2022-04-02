@@ -38,10 +38,10 @@ public class Question{
 	@Column(nullable = false)
 	private String correctAnswer;
 	
-	/* validation */
+	
 	@NotEmpty()
 	@UniqueElements(message = "Each answer has to be different.")
-	//
+	
 	@ElementCollection(fetch = FetchType.LAZY)
 	@CollectionTable(name = "answers", joinColumns = @JoinColumn(name = "question_id", referencedColumnName = "question_id"))
 	@OrderColumn(name = "ordinal", columnDefinition = "tinyint") 
@@ -58,7 +58,7 @@ public class Question{
 	@Transient
 	@Getter(value = AccessLevel.NONE)
 	@Setter(value = AccessLevel.NONE)
-	private boolean hashIsZero; // Default to false;
+	private boolean hashIsZero;
 	
 	
 	public Question() {
